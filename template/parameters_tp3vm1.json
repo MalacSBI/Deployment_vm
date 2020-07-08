@@ -1,0 +1,105 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "northeurope"
+        },
+        "networkInterfaceName": {
+            "value": "tp3vm1177"
+        },
+        "networkSecurityGroupName": {
+            "value": "tp3vm1-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "RDP",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "3389"
+                    }
+                },
+                {
+                    "name": "HTTP",
+                    "properties": {
+                        "priority": 320,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "80"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "tp3subnet"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/57f8d01c-3257-4143-a9d1-b3935b867ec4/resourceGroups/MALAC/providers/Microsoft.Network/virtualNetworks/tp3vnet"
+        },
+        "publicIpAddressName": {
+            "value": "tp3vm1-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "tp3vm1"
+        },
+        "virtualMachineComputerName": {
+            "value": "tp3vm1"
+        },
+        "virtualMachineRG": {
+            "value": "MALAC"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_DS1_v2"
+        },
+        "adminUsername": {
+            "value": "AzureUserVm1"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "malacdiag501"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "/subscriptions/57f8d01c-3257-4143-a9d1-b3935b867ec4/resourceGroups/MALAC/providers/Microsoft.Storage/storageAccounts/malacdiag501"
+        },
+        "autoShutdownStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownTime": {
+            "value": "19:00"
+        },
+        "autoShutdownTimeZone": {
+            "value": "UTC"
+        },
+        "autoShutdownNotificationStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownNotificationLocale": {
+            "value": "fr"
+        },
+        "autoShutdownNotificationEmail": {
+            "value": "matthieu.lacombe@solution-bi.com"
+        }
+    }
+}
